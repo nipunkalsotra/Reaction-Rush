@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reaction Rush - Entertainment Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>⚡ Reaction Rush</h1>
+            <p class="tagline">Test Your Reflexes & Beat The Clock!</p>
+        </header>
+
+        <!-- Game Stats Panel -->
+        <div class="stats-panel">
+            <div class="stat-item">
+                <span class="stat-label">Score</span>
+                <span class="stat-value" id="score">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Time Left</span>
+                <span class="stat-value" id="timer">60</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Combo</span>
+                <span class="stat-value" id="combo">x0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Level</span>
+                <span class="stat-value" id="level">Easy</span>
+            </div>
+        </div>
+
+        <!-- Game Area -->
+        <div class="game-wrapper">
+            <!-- Start Screen -->
+            <div class="screen start-screen active" id="startScreen">
+                <h2>Welcome to Reaction Rush!</h2>
+                <p>Click targets before they disappear. Build combos for bonus points!</p>
+                
+                <div class="difficulty-selector">
+                    <h3>Select Difficulty</h3>
+                    <div class="difficulty-buttons">
+                        <button class="difficulty-btn active" data-level="easy">
+                            <span class="diff-name">🟢 Easy</span>
+                            <span class="diff-desc">2.5s per target</span>
+                        </button>
+                        <button class="difficulty-btn" data-level="medium">
+                            <span class="diff-name">🟡 Medium</span>
+                            <span class="diff-desc">1.5s per target</span>
+                        </button>
+                        <button class="difficulty-btn" data-level="hard">
+                            <span class="diff-name">🔴 Hard</span>
+                            <span class="diff-desc">1s per target</span>
+                        </button>
+                    </div>
+                </div>
+
+                <button class="btn-primary" id="startBtn">Start Game</button>
+                <button class="btn-secondary" id="viewLeaderboardBtn">View Leaderboard</button>
+            </div>
+
+            <!-- Game Play Area -->
+            <div class="screen game-screen" id="gameScreen">
+                <div class="game-board" id="gameBoard">
+                    <!-- Targets spawn here dynamically -->
+                </div>
+                <div class="game-controls">
+                    <button class="btn-control" id="pauseBtn">⏸ Pause</button>
+                    <button class="btn-control" id="quitBtn">🏠 Quit</button>
+                </div>
+            </div>
+
+            <!-- Pause Screen -->
+            <div class="screen pause-screen" id="pauseScreen">
+                <h2>⏸ Game Paused</h2>
+                <p>Take a breather!</p>
+                <button class="btn-primary" id="resumeBtn">Resume Game</button>
+                <button class="btn-secondary" id="quitFromPauseBtn">Quit to Menu</button>
+            </div>
+
+            <!-- Game Over Screen -->
+            <div class="screen gameover-screen" id="gameOverScreen">
+                <h2 id="gameOverTitle">Time's Up!</h2>
+                <div class="final-stats">
+                    <div class="final-stat">
+                        <span class="final-label">Final Score</span>
+                        <span class="final-value" id="finalScore">0</span>
+                    </div>
+                    <div class="final-stat">
+                        <span class="final-label">Max Combo</span>
+                        <span class="final-value" id="maxCombo">x0</span>
+                    </div>
+                    <div class="final-stat">
+                        <span class="final-label">Targets Hit</span>
+                        <span class="final-value" id="targetsHit">0</span>
+                    </div>
+                </div>
+                <div id="newHighScore" class="new-high-score hidden">
+                    🎉 New High Score! 🎉
+                </div>
+                <button class="btn-primary" id="playAgainBtn">Play Again</button>
+                <button class="btn-secondary" id="menuBtn">Main Menu</button>
+            </div>
+
+            <!-- Leaderboard Screen -->
+            <div class="screen leaderboard-screen" id="leaderboardScreen">
+                <h2>🏆 Leaderboard</h2>
+                <div class="leaderboard-content" id="leaderboardContent">
+                    <!-- Populated dynamically -->
+                </div>
+                <button class="btn-secondary" id="backToMenuBtn">Back to Menu</button>
+            </div>
+        </div>
+
+        <!-- Sound Toggle -->
+        <div class="sound-toggle">
+            <button id="soundToggle" class="sound-btn">🔊</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
